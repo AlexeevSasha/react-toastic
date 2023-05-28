@@ -18,7 +18,14 @@ export const ToastContainer = ({ config }: { config?: ConfigToastType }) => {
     <div className={'ToasticContainer'}>
       {Array.from(toasts.entries()).map(([position, elem]) => {
         return elem.length ? (
-          <div key={position} style={{ position: 'fixed', ...getPositionToast[position] }}>
+          <div
+            key={position}
+            style={{
+              position: 'fixed',
+              ...getPositionToast[position],
+              zIndex: 'var(--react-toastic-zindex)',
+            }}
+          >
             {elem}
           </div>
         ) : null;
